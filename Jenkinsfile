@@ -25,16 +25,13 @@ pipeline {
                 body: "Verifique a saída da console do Job ${env.JOB_NAME} em [${env.BUILD_URL}] ",
                 to: "igorsily2@gmail.com"
             )
-        }   
-    }
-
-    post {
-        failure {
+        }
+         failure {
            emailext(
                 subject: "${env.JOB_NAME} na build [${env.BUILD_NUMBER}] Falhou!",
                 body: "Verifique a saída da console do ${env.JOB_NAME} em [${env.BUILD_URL}] ",
                 to: "igorsily2@gmail.com"
             )
-        }   
+        }  
     }
 }    
